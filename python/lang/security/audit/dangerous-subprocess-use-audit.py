@@ -9,6 +9,10 @@ subprocess.call("echo 'hello'")
 # ok:dangerous-subprocess-use-audit
 subprocess.call(["echo", "a", ";", "rm", "-rf", "/"])
 
+echo_cmd = ["echo", "a", ";"]
+# ok:dangerous-subprocess-use-audit
+subprocess.call([*echo_cmd, "rm", "-rf", "/"])
+
 # ok:dangerous-subprocess-use-audit
 subprocess.call(("echo", "a", ";", "rm", "-rf", "/"))
 
